@@ -1,0 +1,23 @@
+
+=== Thu Sep 19 07:51:37 2019
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.ext.nunit@1.0.0
+  com.unity.test-framework@1.1.1
+  com.unity.ide.vscode@1.0.7
+  com.unity.ide.rider@1.1.0
+  com.unity.ugui@1.0.0
+  com.unity.modules.androidjni@1.0.0
+The following packages were updated:
+  com.unity.timeline from version 1.1.0 to 1.2.1
+
+=== Tue Sep 24 14:11:10 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.timeline from version 1.2.1 to 1.2.2
