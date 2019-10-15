@@ -61,7 +61,7 @@ namespace cc.creativecomputing.math.spline
 		public CCNurbSpline(IList<Vector4> controlPoints, IList<float> nurbKnots) : base(CCSplineType.NURB, false)
 		{
 			// input data control
-			for (int i = 0; i < nurbKnots.Count - 1; ++i)
+			for (var i = 0; i < nurbKnots.Count - 1; ++i)
 			{
 				if (nurbKnots[i] > nurbKnots[i + 1])
 				{
@@ -151,9 +151,9 @@ namespace cc.creativecomputing.math.spline
 
 		public override Vector3 Interpolate(float value, int currentControlPoint)
 		{
-			int controlPointAmount = _myPoints.Count;
+			var controlPointAmount = _myPoints.Count;
 
-			Vector3 store = new Vector3();
+			var store = new Vector3();
 			float delimeter = 0;
 
 			for (int i = 0; i < controlPointAmount; ++i)
@@ -193,7 +193,7 @@ namespace cc.creativecomputing.math.spline
 		/// This method returns NURBS' spline knots.
 		/// </summary>
 		/// <returns> NURBS' spline knots </returns>
-		public virtual IList<float> knots()
+		public virtual IList<float> Knots()
 		{
 			return _myKnots;
 		}

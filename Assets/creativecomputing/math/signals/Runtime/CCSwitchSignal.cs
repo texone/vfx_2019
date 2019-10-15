@@ -9,19 +9,19 @@ namespace cc.creativecomputing.math.signal
 
 		public CCSignalType signal = CCSignalType.SIMPLEX;
 
-		public override float[] signalImpl(float theX, float theY, float theZ)
+		public override float[] SignalImpl(float theX, float theY, float theZ)
 		{
-			return signal.signal().signalImpl(theX, theY, theZ);
+			return signal.signal().SignalImpl(theX, theY, theZ);
 		}
 
-		public override float[] signalImpl(float theX, float theY)
+		public override float[] SignalImpl(float theX, float theY)
 		{
-			return signal.signal().signalImpl(theX, theY);
+			return signal.signal().SignalImpl(theX, theY);
 		}
 
-		public override float[] signalImpl(float theX)
+		public override float[] SignalImpl(float theX)
 		{
-			return signal.signal().signalImpl(theX);
+			return signal.signal().SignalImpl(theX);
 		}
 
 	}

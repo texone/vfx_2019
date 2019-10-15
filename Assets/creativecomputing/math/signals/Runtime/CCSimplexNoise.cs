@@ -133,7 +133,7 @@ namespace cc.creativecomputing.math.signal
 
 		// 1D simplex noise with derivative.
 		// If the last argument is not null, the analytic derivative is also calculated.
-		public override float[] noiseImpl(float x)
+		public override float[] NoiseImpl(float x)
 		{
 			int i0 = (int)Mathf.Floor(x); // Standard Floor flushes the processor pipeline.
 			int i1 = i0 + 1;
@@ -173,9 +173,9 @@ namespace cc.creativecomputing.math.signal
 		/* (non-Javadoc)
 		 * @see cc.creativecomputing.math.random.CCNoise#noiseImpl(float)
 		 */
-		public override float[] signalImpl(float theX)
+		public override float[] SignalImpl(float theX)
 		{
-			float[] myValues = noiseImpl(theX);
+			float[] myValues = NoiseImpl(theX);
 			float[] myResult = new float[myValues.Length];
 			for (int i = 0; i < myResult.Length;i++)
 			{
@@ -210,7 +210,7 @@ namespace cc.creativecomputing.math.signal
 			return new float[] {grad2lut[h][0], grad2lut[h][1]};
 		}
 
-		public override float[] signalImpl(float x, float y)
+		public override float[] SignalImpl(float x, float y)
 		/// <summary>
 		/// 2D simplex noise with derivatives.the analytic derivative (the 2D gradient of the scalar noise field) is
 		/// also calculated. </summary>
@@ -373,7 +373,7 @@ namespace cc.creativecomputing.math.signal
 			return new float[] {grad3lut[h][0], grad3lut[h][1], grad3lut[h][2]};
 		}
 
-		public override float[] signalImpl(float x, float y, float z)
+		public override float[] SignalImpl(float x, float y, float z)
 		/// <summary>
 		/// 3D simplex noise with derivatives.the analytic derivative (the 3D gradient of the scalar noise field) is
 		/// also calculated. </summary>

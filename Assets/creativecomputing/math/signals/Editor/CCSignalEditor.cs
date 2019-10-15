@@ -68,7 +68,7 @@ namespace cc.creativecomputing.math.signal
             {
                 var x = (float)i / (_curveResolution - 1);
                 var theta = x;
-                var y = signal.normed ? signal.value(theta) : (signal.value(theta) + 1) / 2;
+                var y = signal.normed ? signal.Value(theta) : (signal.Value(theta) + 1) / 2;
                 _curveVertices[i] = PointInRect(x, Mathf.Clamp01(y));
             }
 

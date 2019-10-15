@@ -27,7 +27,7 @@ namespace cc.creativecomputing.math.signal
 		{
 		}
 
-		private float triValue(float theInput)
+		private float TriValue(float theInput)
 		{
 			theInput += 0.25f;
 			theInput %= 1;
@@ -37,11 +37,7 @@ namespace cc.creativecomputing.math.signal
 			}
 
 			float myResult = theInput / ratio;
-			if (theInput <= ratio)
-			{
-				myResult = theInput / ratio;
-			}
-			else
+			if (theInput > ratio)
 			{
 				myResult = 1 - (theInput - ratio) / (1 - ratio);
 			}
@@ -53,25 +49,25 @@ namespace cc.creativecomputing.math.signal
 			return myResult;
 		}
 
-		public override float[] signalImpl(float theX, float theY, float theZ)
+		public override float[] SignalImpl(float theX, float theY, float theZ)
 		{
-			return new float[]{(triValue(theX) + triValue(theY)) / 2};
+			return new float[]{(TriValue(theX) + TriValue(theY)) / 2};
 		}
 
 		/* (non-Javadoc)
 		 * @see cc.creativecomputing.math.signal.CCSignal#signalImpl(float, float)
 		 */
-		public override float[] signalImpl(float theX, float theY)
+		public override float[] SignalImpl(float theX, float theY)
 		{
-			return new float[]{(triValue(theX) + triValue(theY)) / 2};
+			return new float[]{(TriValue(theX) + TriValue(theY)) / 2};
 		}
 
 		/* (non-Javadoc)
 		 * @see cc.creativecomputing.math.signal.CCSignal#signalImpl(float)
 		 */
-		public override float[] signalImpl(float theX)
+		public override float[] SignalImpl(float theX)
 		{
-			return new float[]{triValue(theX)};
+			return new float[]{TriValue(theX)};
 		}
 
 	}

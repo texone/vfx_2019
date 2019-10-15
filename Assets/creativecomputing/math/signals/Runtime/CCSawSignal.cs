@@ -40,7 +40,7 @@ namespace cc.creativecomputing.math.signal
 			return myResult;
 		}
 
-		public override float[] signalImpl(float theX, float theY, float theZ)
+		public override float[] SignalImpl(float theX, float theY, float theZ)
 		{
 			return new float[]{(saw(theX) + saw(theY) + saw(theZ) / 3f)};
 		}
@@ -48,7 +48,7 @@ namespace cc.creativecomputing.math.signal
 		/* (non-Javadoc)
 		 * @see cc.creativecomputing.math.signal.CCSignal#signalImpl(float, float)
 		 */
-		public override float[] signalImpl(float theX, float theY)
+		public override float[] SignalImpl(float theX, float theY)
 		{
 			return new float[]{(saw(theX) +  saw(theY) / 2)};
 		}
@@ -56,7 +56,7 @@ namespace cc.creativecomputing.math.signal
 		/* (non-Javadoc)
 		 * @see cc.creativecomputing.math.signal.CCSignal#signalImpl(float)
 		 */
-		public override float[] signalImpl(float theX)
+		public override float[] SignalImpl(float theX)
 		{
 			return new float[]{saw(theX)};
 		}

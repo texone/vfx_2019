@@ -27,7 +27,7 @@ namespace cc.creativecomputing.effects
         public float[] Values(CCEffectData theData)
         {
             
-            return signal.values(
+            return signal.Values(
                 phase.X(theData) + offset.x * theData.amount + phase.Random(theData) + phase.Id(theData) + phase.IdMod(theData) + phase.Group(theData) + phase.GroupMod(theData),
                 phase.Y(theData) + offset.y,
                 phase.Z(theData) + offset.z

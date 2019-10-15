@@ -76,7 +76,7 @@ namespace cc.creativecomputing.math.signal
                 getNewRandomPos();
 			}
 		}
-		public override float[] signalImpl(float theX, float theY, float theZ)
+		public override float[] SignalImpl(float theX, float theY, float theZ)
 		{
 			nextStep();
 			return new float[]{currentPosition.x, currentPosition.y, currentPosition.z};
@@ -85,7 +85,7 @@ namespace cc.creativecomputing.math.signal
 		/* (non-Javadoc)
 		 * @see cc.creativecomputing.math.signal.CCSignal#signalImpl(float, float)
 		 */
-		public override float[] signalImpl(float theX, float theY)
+		public override float[] SignalImpl(float theX, float theY)
 		{
 			nextStep();
 			return new float[]{currentPosition.x, currentPosition.y};
@@ -94,7 +94,7 @@ namespace cc.creativecomputing.math.signal
 		/* (non-Javadoc)
 		 * @see cc.creativecomputing.math.signal.CCSignal#signalImpl(float)
 		 */
-		public override float[] signalImpl(float theX)
+		public override float[] SignalImpl(float theX)
 		{
 			nextStep();
 			return new float[]{currentPosition.x};

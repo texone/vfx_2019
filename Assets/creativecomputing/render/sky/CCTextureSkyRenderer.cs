@@ -58,12 +58,13 @@ namespace cc.creativecomputing.render
             _myPropertyBlock.SetMatrix(Shader.PropertyToID("_PixelCoordToViewDirWS"), builtinParams.pixelCoordToViewDirMatrix);
             CoreUtils.DrawFullScreen(builtinParams.commandBuffer, _mySkyMaterial, _myPropertyBlock, renderForCubemap ? 0 : 1);
         }
-
+        
+        /*
         public override void SetRenderTargets(BuiltinSkyParameters builtinParams)
         {
 
             CoreUtils.SetRenderTarget(builtinParams.commandBuffer, builtinParams.colorBuffer);
 
-        }
+        }*/
     }
 }

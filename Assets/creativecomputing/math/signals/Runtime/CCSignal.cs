@@ -48,16 +48,16 @@ namespace cc.creativecomputing.math.signal
 		/// <param name="theY"> </param>
 		/// <param name="theZ"> </param>
 		/// <returns> the calculated value </returns>
-		public abstract float[] signalImpl(float theX, float theY, float theZ);
+		public abstract float[] SignalImpl(float theX, float theY, float theZ);
         
-		public virtual float[] signalImpl(float theX, float theY)
+		public virtual float[] SignalImpl(float theX, float theY)
 		{
-			return signalImpl(theX,theY,0);
+			return SignalImpl(theX,theY,0);
 		}
         
-		public virtual float[] signalImpl(float theX)
+		public virtual float[] SignalImpl(float theX)
 		{
-			return signalImpl(theX,0);
+			return SignalImpl(theX,0);
 		}
 
 		/// <summary>
@@ -65,9 +65,9 @@ namespace cc.creativecomputing.math.signal
 		/// multiple output values like in case of the worley noise </summary>
 		/// <param name="theX"> x coord for the noise </param>
 		/// <returns> multiple values </returns>
-		public float[] values(float theX)
+		public float[] Values(float theX)
 		{
-			float myScale = scale;
+			var myScale = scale;
 			float myFallOff = gain;
 
 			float myOctaves = Mathf.Floor(octaves);
@@ -76,7 +76,7 @@ namespace cc.creativecomputing.math.signal
 
 			for (int i = 0; i < myOctaves;i++)
 			{
-				float[] myValues = signalImpl(theX * myScale);
+				float[] myValues = SignalImpl(theX * myScale);
 				if (myResult == null)
 				{
 					myResult = new float[myValues.Length];
@@ -89,10 +89,10 @@ namespace cc.creativecomputing.math.signal
 				myFallOff *= gain;
 				myScale *= lacunarity;
 			}
-			float myBlend = octaves - myOctaves;
+			var myBlend = octaves - myOctaves;
 			if (myBlend > 0)
 			{
-				float[] myValues = signalImpl(theX * myScale);
+				var myValues = SignalImpl(theX * myScale);
 				if (myResult == null)
 				{
 					myResult = new float[myValues.Length];
@@ -103,13 +103,14 @@ namespace cc.creativecomputing.math.signal
 				}
 				myAmp += myFallOff * myBlend;
 			}
-			if (myAmp > 0)
-			{
+
+			if (!(myAmp > 0)) return myResult;
+			
 				for (int j = 0; j < myResult.Length;j++)
 				{
 					myResult[j] /= myAmp;
 				}
-			}
+			
 			return myResult;
 		}
 
@@ -117,9 +118,9 @@ namespace cc.creativecomputing.math.signal
 		/// Returns the value for the given coordinates. By default only one band is calculated. </summary>
 		/// <param name="theX"> x coord for the noise </param>
 		/// <returns> the value for the given coordinates. </returns>
-		public virtual float value(float theX)
+		public virtual float Value(float theX)
 		{
-			return values(theX)[0];
+			return Values(theX)[0];
 		}
 
 		/// <summary>
@@ -128,7 +129,7 @@ namespace cc.creativecomputing.math.signal
 		/// <param name="theX"> x coord for the noise </param>
 		/// <param name="theY"> y coord for the noise </param>
 		/// <returns> multiple values </returns>
-		public float[] values(float theX, float theY)
+		public float[] Values(float theX, float theY)
 		{
 			float myScale = scale;
 			float myFallOff = gain;
@@ -139,7 +140,7 @@ namespace cc.creativecomputing.math.signal
 
 			for (int i = 0; i < myOctaves;i++)
 			{
-				float[] myValues = signalImpl(theX * myScale, theY * myScale);
+				float[] myValues = SignalImpl(theX * myScale, theY * myScale);
 				if (myResult == null)
 				{
 					myResult = new float[myValues.Length];
@@ -155,7 +156,7 @@ namespace cc.creativecomputing.math.signal
 			float myBlend = octaves - myOctaves;
 			if (myBlend > 0)
 			{
-				float[] myValues = signalImpl(theX * myScale, theY * myScale);
+				float[] myValues = SignalImpl(theX * myScale, theY * myScale);
 				if (myResult == null)
 				{
 					myResult = new float[myValues.Length];
@@ -181,9 +182,9 @@ namespace cc.creativecomputing.math.signal
 		/// multiple output values like in case of the worley noise </summary>
 		/// <param name="theVector"> coordinates for the noise </param>
 		/// <returns> multiple values </returns>
-		public virtual float[] values(Vector2 theVector)
+		public virtual float[] Values(Vector2 theVector)
 		{
-			return values(theVector.x, theVector.y);
+			return Values(theVector.x, theVector.y);
 		}
 
 		/// <summary>
@@ -191,18 +192,18 @@ namespace cc.creativecomputing.math.signal
 		/// <param name="theX"> x coord for the noise </param>
 		/// <param name="theY"> y coord for the noise </param>
 		/// <returns> the value for the given coordinates. </returns>
-		public virtual float value(float theX, float theY)
+		public virtual float Value(float theX, float theY)
 		{
-			return values(theX, theY)[0];
+			return Values(theX, theY)[0];
 		}
 
 		/// <summary>
 		/// Returns the value for the given coordinates. By default only one band is calculated. </summary>
 		/// <param name="theVector"> coordinates for the noise </param>
 		/// <returns> the value for the given coordinates. </returns>
-		public virtual float value(Vector2 theVector)
+		public virtual float Value(Vector2 theVector)
 		{
-			return values(theVector)[0];
+			return Values(theVector)[0];
 		}
 
 		/// <summary>
@@ -212,7 +213,7 @@ namespace cc.creativecomputing.math.signal
 		/// <param name="theY"> y coord for the noise </param>
 		/// <param name="theZ"> z coord for the noise </param>
 		/// <returns> multiple values </returns>
-		public float[] values(float theX, float theY, float theZ)
+		public float[] Values(float theX, float theY, float theZ)
 		{
 			float myScale = scale;
 			float myFallOff = gain;
@@ -223,7 +224,7 @@ namespace cc.creativecomputing.math.signal
 
 			for (int i = 0; i < myOctaves;i++)
 			{
-				float[] myValues = signalImpl(theX * myScale, theY * myScale, theZ * myScale);
+				float[] myValues = SignalImpl(theX * myScale, theY * myScale, theZ * myScale);
 				if (myResult == null)
 				{
 					myResult = new float[myValues.Length];
@@ -239,7 +240,7 @@ namespace cc.creativecomputing.math.signal
 			float myBlend = octaves - myOctaves;
 			if (myBlend > 0)
 			{
-				float[] myValues = signalImpl(theX * myScale, theY * myScale, theZ * myScale);
+				float[] myValues = SignalImpl(theX * myScale, theY * myScale, theZ * myScale);
 				if (myResult == null)
 				{
 					myResult = new float[myValues.Length];
@@ -250,12 +251,14 @@ namespace cc.creativecomputing.math.signal
 				}
 				myAmp += myFallOff * myBlend;
 			}
-			if (myAmp > 0)
+
+			if (myAmp <= 0) return myResult;
 			{
-				for (int j = 0; j < myResult.Length;j++)
-				{
-					myResult[j] /= myAmp;
-				}
+				if (myResult != null)
+					for (int j = 0; j < myResult.Length; j++)
+					{
+						myResult[j] /= myAmp;
+					}
 			}
 			return myResult;
 		}
@@ -265,9 +268,9 @@ namespace cc.creativecomputing.math.signal
 		/// multiple output values like in case of the worley noise </summary>
 		/// <param name="theVector"> coordinates for the noise </param>
 		/// <returns> multiple values </returns>
-		public virtual float[] values(Vector3 theVector)
+		public virtual float[] Values(Vector3 theVector)
 		{
-			return values(theVector.x, theVector.y, theVector.z);
+			return Values(theVector.x, theVector.y, theVector.z);
 		}
 
 		/// <summary>
@@ -276,26 +279,26 @@ namespace cc.creativecomputing.math.signal
 		/// <param name="theY"> y coord for the noise </param>
 		/// <param name="theZ"> z coord for the noise </param>
 		/// <returns> the value for the given coordinates. </returns>
-		public virtual float value(float theX, float theY, float theZ)
+		public virtual float Value(float theX, float theY, float theZ)
 		{
-			return values(theX, theY, theZ)[0];
+			return Values(theX, theY, theZ)[0];
 		}
 
 		/// <summary>
 		/// Returns the value for the given coordinates. By default only one band is calculated. </summary>
 		/// <param name="theVector"> coordinates for the noise </param>
 		/// <returns> the value for the given coordinates. </returns>
-		public virtual float value(Vector3 theVector)
+		public virtual float Value(Vector3 theVector)
 		{
-			return values(theVector)[0];
+			return Values(theVector)[0];
 		}
         
-		public virtual float[] noiseImpl(float theX)
+		public virtual float[] NoiseImpl(float theX)
 		{
-			return signalImpl(theX,0);
+			return SignalImpl(theX,0);
 		}
 
-		public virtual void offset(float theX, float theY, float theZ)
+		public virtual void Offset(float theX, float theY, float theZ)
 		{
 			_myOffsetX = theX;
 			_myOffsetY = theY;

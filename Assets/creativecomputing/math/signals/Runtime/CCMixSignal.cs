@@ -61,39 +61,39 @@ namespace cc.creativecomputing.math.signal
 			) / myMaxAmount * amp;
 		}
 
-		public override float[] signalImpl(float theX, float theY, float theZ)
+		public override float[] SignalImpl(float theX, float theY, float theZ)
 		{
 			return new float[]{mixSignal(
-				saw == 0 ? new float[]{0} : _mySaw.signalImpl(theX, theY, theZ), 
-				simplex == 0 ? new float[]{0} : _mySimplex.signalImpl(theX, theY, theZ), 
-				sine == 0 ? new float[]{0} : _mySine.signalImpl(theX, theY, theZ), 
-				square == 0 ? new float[]{0} : squareSig.signalImpl(theX, theY, theZ), 
-				tri == 0 ? new float[]{0} : triSig.signalImpl(theX, theY, theZ), 
-				slopedTri == 0 ? new float[]{0} : _mySlopedtriSig.signalImpl(theX, theY, theZ))
+				saw == 0 ? new float[]{0} : _mySaw.SignalImpl(theX, theY, theZ), 
+				simplex == 0 ? new float[]{0} : _mySimplex.SignalImpl(theX, theY, theZ), 
+				sine == 0 ? new float[]{0} : _mySine.SignalImpl(theX, theY, theZ), 
+				square == 0 ? new float[]{0} : squareSig.SignalImpl(theX, theY, theZ), 
+				tri == 0 ? new float[]{0} : triSig.SignalImpl(theX, theY, theZ), 
+				slopedTri == 0 ? new float[]{0} : _mySlopedtriSig.SignalImpl(theX, theY, theZ))
 			};
 		}
 
-		public override float[] signalImpl(float theX, float theY)
+		public override float[] SignalImpl(float theX, float theY)
 		{
 			return new float[]{mixSignal(
-				saw == 0 ? new float[]{0} : _mySaw.signalImpl(theX, theY), 
-				simplex == 0 ? new float[]{0} : _mySimplex.signalImpl(theX, theY), 
-				sine == 0 ? new float[]{0} : _mySine.signalImpl(theX, theY), 
-				square == 0 ? new float[]{0} : squareSig.signalImpl(theX, theY), 
-				tri == 0 ? new float[]{0} : triSig.signalImpl(theX, theY), 
-				slopedTri == 0 ? new float[]{0} : _mySlopedtriSig.signalImpl(theX, theY))
+				saw == 0 ? new float[]{0} : _mySaw.SignalImpl(theX, theY), 
+				simplex == 0 ? new float[]{0} : _mySimplex.SignalImpl(theX, theY), 
+				sine == 0 ? new float[]{0} : _mySine.SignalImpl(theX, theY), 
+				square == 0 ? new float[]{0} : squareSig.SignalImpl(theX, theY), 
+				tri == 0 ? new float[]{0} : triSig.SignalImpl(theX, theY), 
+				slopedTri == 0 ? new float[]{0} : _mySlopedtriSig.SignalImpl(theX, theY))
 			};
 		}
 
-		public override float[] signalImpl(float theX)
+		public override float[] SignalImpl(float theX)
 		{
 			return new float[]{mixSignal(
-				saw == 0 ? new float[]{0} : _mySaw.signalImpl(theX), 
-				simplex == 0 ? new float[]{0} : _mySimplex.signalImpl(theX), 
-				sine == 0 ? new float[]{0} : _mySine.signalImpl(theX), 
-				square == 0 ? new float[]{0} : squareSig.signalImpl(theX), 
-				tri == 0 ? new float[]{0} : triSig.signalImpl(theX), 
-				slopedTri == 0 ? new float[]{0} : _mySlopedtriSig.signalImpl(theX))
+				saw == 0 ? new float[]{0} : _mySaw.SignalImpl(theX), 
+				simplex == 0 ? new float[]{0} : _mySimplex.SignalImpl(theX), 
+				sine == 0 ? new float[]{0} : _mySine.SignalImpl(theX), 
+				square == 0 ? new float[]{0} : squareSig.SignalImpl(theX), 
+				tri == 0 ? new float[]{0} : triSig.SignalImpl(theX), 
+				slopedTri == 0 ? new float[]{0} : _mySlopedtriSig.SignalImpl(theX))
 			};
 		}
 

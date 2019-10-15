@@ -11,7 +11,7 @@ namespace cc.creativecomputing.math.signal
 		[Range(0, 1)]
 		public float _cStepSize = 0.1f;
 
-		public override float[] signalImpl(float theX)
+		public override float[] SignalImpl(float theX)
 		{
 
 			float myDiv = theX / _cStepSize;
@@ -21,8 +21,8 @@ namespace cc.creativecomputing.math.signal
 			//CCLog.info(myBlend);
 
 
-			float[] myLowerValues = base.signalImpl(myLowerStep);
-			float[] myUpperValues = base.signalImpl(myUpperStep);
+			float[] myLowerValues = base.SignalImpl(myLowerStep);
+			float[] myUpperValues = base.SignalImpl(myUpperStep);
 
 			float[] myResult = new float[myLowerValues.Length];
 
@@ -34,16 +34,16 @@ namespace cc.creativecomputing.math.signal
 			return myResult;
 		}
 
-		public override float[] signalImpl(float theX, float theY)
+		public override float[] SignalImpl(float theX, float theY)
 		{
 			// TODO Auto-generated method stub
-			return base.signalImpl(theX, theY);
+			return base.SignalImpl(theX, theY);
 		}
 
-		public override float[] signalImpl(float theX, float theY, float theZ)
+		public override float[] SignalImpl(float theX, float theY, float theZ)
 		{
 			// TODO Auto-generated method stub
-			return base.signalImpl(theX, theY, theZ);
+			return base.SignalImpl(theX, theY, theZ);
 		}
 	}
 
