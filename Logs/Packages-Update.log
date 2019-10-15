@@ -21,3 +21,12 @@ Update Mode: updateDependencies
 
 The following packages were updated:
   com.unity.timeline from version 1.2.1 to 1.2.2
+
+=== Wed Oct  2 22:57:54 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.ide.vscode from version 1.0.7 to 1.1.2
+  com.unity.render-pipelines.universal from version 7.0.1 to 7.1.1
