@@ -1,0 +1,3 @@
+[submodule "Assets/creative-computing-unity"]
+	path = Assets/creative-computing-unity
+	url = ../creative-computing-unity
