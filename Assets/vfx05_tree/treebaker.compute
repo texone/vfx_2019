@@ -1,0 +1,38 @@
+﻿#pragma kernel TransferData
+
+uint VertexCount;
+uint SplineCount;
+float4x4 Transform;
+
+Buffer<float> PositionBuffer;
+Buffer<float> AttributeBuffer;
+
+RWTexture2D<float4> PositionMap;
+RWTexture2D<float4> AttributeMap;
+
+[numthreads(8, 8, 1)]
+void TransferData(uint2 id : SV_DispatchThreadID)
+{
+	if (id.y >= SplineCount) {
+		PositionMap[id] = float4(1, 0, 0, 1);
+		AttributeMap[id] = float4(0, 1, 0, 1);
+	}
+	uint i = id.x + id.y * VertexCount;
+
+	float3 p1 = float3(
+		PositionBuffer[i * 3],
+		PositionBuffer[i * 3 + 1],
+		PositionBuffer[i * 3 + 2]
+		);
+
+	float3 a1 = float3(
+		AttributeBuffer[i * 3],
+		AttributeBuffer[i * 3 + 1],
+		AttributeBuffer[i * 3 + 2]
+		);
+
+	p1 = mul(Transform, float4(p1, 1)).xyz;
+
+	PositionMap[id] = float4(p1, 1);
+	AttributeMap[id] = float4(a1, 1);
+}
